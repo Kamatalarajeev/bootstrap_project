@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFlow Solutions - About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --dark-gradient: linear-gradient(135deg, #232526 0%, #414345 100%);
+        }
+        
+        .about-hero {
+            background: var(--primary-gradient);
+            color: white;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .team-card {
+            border: none;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .team-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .team-img {
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(102, 126, 234, 0.1);
+            color: var(--bs-primary);
+            text-decoration: none;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary-gradient);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        .stats-card {
+            background: var(--dark-gradient);
+            color: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--secondary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .values-section {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            height: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .value-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        footer {
+            background: var(--dark-gradient);
+        }
+        
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: var(--secondary-gradient);
+            transform: translateY(-3px);
+        }
+        
+        .btn-gradient {
+            background: var(--secondary-gradient);
+            border: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-gradient:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-gradient);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            border-radius: 50%;
+            background: var(--secondary-gradient);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand text-primary" href="index.html">
+                <i class="fas fa-rocket me-2"></i>TechFlow Solutions
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-gradient text-white px-3 rounded-pill ms-2" href="contact.html">Get Started</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container position-relative">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-4">About TechFlow Solutions</h1>
+                        <p class="lead mb-4">We are a team of passionate technologists, designers, and strategists dedicated to creating digital experiences that drive business success and innovation.</p>
+                        <p class="mb-4">Founded in 2020, TechFlow Solutions has grown from a small startup to a trusted partner for businesses of all sizes. Our mission is to bridge the gap between innovative technology and practical business solutions.</p>
+                        <div class="d-flex flex-wrap gap-3">
+                            <button class="btn btn-light btn-lg px-4 py-3 rounded-pill">
+                                <i class="fas fa-download me-2"></i>Company Profile
+                            </button>
+                            <button class="btn btn-outline-light btn-lg px-4 py-3 rounded-pill">
+                                Our Story <i class="fas fa-arrow-down ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-center">
+                        <i class="fas fa-users" style="font-size: 12rem; opacity: 0.3;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Company Stats -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stat-number">500+</div>
+                        <h5>Projects Completed</h5>
+                        <p class="mb-0">Successfully delivered projects across various industries</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stat-number">50+</div>
+                        <h5>Happy Clients</h5>
+                        <p class="mb-0">Long-term partnerships built on trust and results</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stat-number">5</div>
+                        <h5>Years Experience</h5>
+                        <p class="mb-0">Continuously growing and evolving since 2020</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="stats-card">
+                        <div class="stat-number">24/7</div>
+                        <h5>Support</h5>
+                        <p class="mb-0">Round-the-clock assistance when you need it</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Timeline -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3">Our Journey</h2>
+                    <p class="lead text-muted">From a small startup to a leading technology solutions provider</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h5 class="fw-bold">2020 - The Beginning</h5>
+                            <p class="text-muted">TechFlow Solutions was founded with a vision to democratize technology for businesses of all sizes. Started with just 3 passionate developers in a small office.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 class="fw-bold">2021 - First Major Client</h5>
+                            <p class="text-muted">Landed our first enterprise client and successfully delivered a complex web application that increased their operational efficiency by 40%.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 class="fw-bold">2022 - Team Expansion</h5>
+                            <p class="text-muted">Grew our team to 15 professionals, including specialists in mobile development, UI/UX design, and cloud infrastructure.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 class="fw-bold">2023 - International Recognition</h5>
+                            <p class="text-muted">Received the "Innovation in Technology" award and expanded our services to include AI and machine learning solutions.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 class="fw-bold">2024 - Global Reach</h5>
+                            <p class="text-muted">Established partnerships worldwide and launched our 24/7 support service to better serve our international clients.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 class="fw-bold">2025 - Present</h5>
+                            <p class="text-muted">Today, we're a team of 25+ experts serving clients globally, with a focus on sustainable and innovative technology solutions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Values -->
+    <section class="values-section py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3">Our Core Values</h2>
+                    <p class="lead text-muted">The principles that guide everything we do</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-item">
+                        <div class="value-icon bg-primary">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h5>Innovation</h5>
+                        <p class="text-muted">We constantly explore new technologies and methodologies to provide cutting-edge solutions that keep our clients ahead of the curve.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-item">
+                        <div class="value-icon bg-success">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <h5>Integrity</h5>
+                        <p class="text-muted">Honesty and transparency form the foundation of all our relationships. We believe in building trust through consistent, ethical practices.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-item">
+                        <div class="value-icon bg-warning">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h5>Excellence</h5>
+                        <p class="text-muted">We strive for perfection in every project, ensuring that our solutions not only meet but exceed client expectations.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-item">
+                        <div class="value-icon bg-info">
+                            <i class="fas fa-users-cog"></i>
+                        </div>
+                        <h5>Collaboration</h5>
+                        <p class="text-muted">We work as an extension of your team, fostering open communication and collaborative problem-solving throughout every project.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-item">
+                        <div class="value-icon bg-danger">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h5>Agility</h5>
+                        <p class="text-muted">We adapt quickly to changing requirements and market conditions, ensuring our solutions remain relevant and effective.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="value-item">
+                        <div class="value-icon bg-dark">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h5>Sustainability</h5>
+                        <p class="text-muted">We're committed to creating environmentally responsible solutions that contribute to a sustainable digital future.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Services -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3">What We Do</h2>
+                    <p class="lead text-muted">Comprehensive digital solutions tailored to your business needs</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card service-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-primary rounded-3 p-3">
+                                        <i class="fas fa-laptop-code text-white" style="font-size: 1.5rem;"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="card-title">Web Development</h5>
+                                    <p class="card-text text-muted">Custom web applications built with modern frameworks and technologies. From simple websites to complex enterprise solutions.</p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i>React & Vue.js Development</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Node.js Backend Solutions</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Database Design & Optimization</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>API Development & Integration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card service-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-success rounded-3 p-3">
+                                        <i class="fas fa-mobile-alt text-white" style="font-size: 1.5rem;"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="card-title">Mobile Development</h5>
+                                    <p class="card-text text-muted">Native and cross-platform mobile applications that deliver exceptional user experiences on iOS and Android.</p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i>React Native Development</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>iOS & Android Native Apps</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>App Store Optimization</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Progressive Web Apps</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card service-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-warning rounded-3 p-3">
+                                        <i class="fas fa-cloud text-white" style="font-size: 1.5rem;"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="card-title">Cloud Solutions</h5>
+                                    <p class="card-text text-muted">Scalable cloud infrastructure and migration services to help your business grow without limits.</p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i>AWS & Azure Deployment</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>DevOps & CI/CD Pipelines</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Cloud Migration Services</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Infrastructure Monitoring</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card service-card">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-start">
+                                <div class="flex-shrink-0">
+                                    <div class="bg-info rounded-3 p-3">
+                                        <i class="fas fa-palette text-white" style="font-size: 1.5rem;"></i>
+                                    </div>
+                                </div>
+                                <div class="flex-grow-1 ms-3">
+                                    <h5 class="card-title">UI/UX Design</h5>
+                                    <p class="card-text text-muted">Beautiful, intuitive designs that enhance user experience and drive engagement across all platforms.</p>
+                                    <ul class="list-unstyled">
+                                        <li><i class="fas fa-check text-success me-2"></i>User Research & Testing</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Wireframing & Prototyping</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Brand Identity Design</li>
+                                        <li><i class="fas fa-check text-success me-2"></i>Accessibility Optimization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="display-5 fw-bold mb-3">Meet Our Team</h2>
+                    <p class="lead text-muted">Talented professionals who bring creativity and expertise to every project</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card">
+                        <div class="team-img bg-primary">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title">Alex Thompson</h5>
+                            <p class="text-primary mb-3">CEO & Lead Developer</p>
+                            <p class="card-text text-muted">Full-stack developer with 8+ years of experience in modern web technologies and team leadership.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card">
+                        <div class="team-img bg-success">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title">Maria Garcia</h5>
+                            <p class="text-success mb-3">Lead UX/UI Designer</p>
+                            <p class="card-text text-muted">Creative designer passionate about creating intuitive and beautiful user experiences that drive engagement.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-dribbble"></i></a>
+                                <a href="#"><i class="fab fa-behance"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card">
+                        <div class="team-img bg-warning">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title">David Kim</h5>
+                            <p class="text-warning mb-3">Senior Project Manager</p>
+                            <p class="card-text text-muted">Experienced project manager ensuring smooth delivery and exceptional client satisfaction across all projects.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-slack"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card">
+                        <div class="team-img bg-info">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title">Sarah Johnson</h5>
+                            <p class="text-info mb-3">Cloud Solutions Architect</p>
+                            <p class="card-text text-muted">Cloud infrastructure specialist with expertise in AWS, Azure, and DevOps best practices.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fab fa-aws"></i></a>
+                                <a href="#"><i class="fab fa-docker"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card">
+                        <div class="team-img bg-danger">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title">Michael Chen</h5>
+                            <p class="text-danger mb-3">Mobile Development Lead</p>
+                            <p class="card-text text-muted">React Native and iOS/Android specialist focused on creating high-performance mobile applications.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-github"></i></a>
+                                <a href="#"><i class="fab fa-stackoverflow"></i></a>
+                                <a href="#"><i class="fab fa-medium"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="card team-card">
+                        <div class="team-img bg-dark">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title">Emily Rodriguez</h5>
+                            <p class="text-dark mb-3">QA & Testing Manager</p>
+                            <p class="card-text text-muted">Quality assurance expert ensuring every product meets the highest standards before delivery.</p>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-linkedin"></i></a>
+                                <a href="#"><i class="fas fa-bug"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5" style="background: var(--primary-gradient);">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-white">
+                    <h2 class="display-5 fw-bold mb-3">Ready to Start Your Project?</h2>
+                    <p class="lead mb-4">Let's work together to bring your vision to life with innovative technology solutions.</p>
+                    <div class="d-flex flex-wrap justify-content-center gap-3">
+                        <a href="contact.html" class="btn btn-light btn-lg px-4 py-3 rounded-pill">
